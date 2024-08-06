@@ -100,13 +100,14 @@ abstract class SSHBaseCommand extends TerminusCommand implements SiteAwareInterf
             // Send the combined command line via SSH
             $ssh_data = $this->sendCommandViaSsh($command_line, $env_vars);
 
+            $command_summary = $this->getCommandSummary($command_args);
             // Log the command execution
             $this->log()->notice(
                 'Command: {site}.{env} -- {command} [Exit: {exit}] (Attempt {attempt}/{max_attempts})',
                 [
                     'site' => $this->site->getName(),
                     'env' => $this->environment->id,
-                    'command' => $this->getCommandSummary($command_args),
+                    'command' => $command_summary,
                     'exit' => $ssh_data['exit_code'],
                     'attempt' => $attempt + 1,
                     'max_attempts' => $max_attempts,
