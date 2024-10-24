@@ -106,6 +106,7 @@ class Workflows extends APICollection implements SessionAwareInterface
         if ($results->isError()) {
             $this->logger->debug("Workflow Creation Failed: {error}", ['error' => $results->getStatusCodeReason()]);
             $this->logger->debug("********************************************************************************");
+            $this->logger->debug("request params {debug}", ['debug' => print_r(params, true)]);
             $this->logger->debug("results {debug}", ['debug' => print_r($results, true)]);
             $this->logger->debug("********************************************************************************");
             throw new TerminusException(
