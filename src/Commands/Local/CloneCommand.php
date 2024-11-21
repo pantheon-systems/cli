@@ -41,8 +41,10 @@ class CloneCommand extends TerminusCommand implements SiteAwareInterface, Config
      *
      * @usage <site> Clone's a local copy into "$HOME/pantheon-local-copies"
      */
-    public function clone(string $site_id, array $options = ['site_dir' => null, 'override' => null, 'branch' => 'master']): string
-    {
+    public function clone(
+        string $site_id,
+        array $options = ['site_dir' => null, 'override' => null, 'branch' => 'master']
+    ): string {
         $site = $this->getSiteById($site_id);
         $env = $site->getEnvironments()->get('dev');
 
