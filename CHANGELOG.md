@@ -11,7 +11,7 @@ All notable changes to this project will be documented in this file. This projec
 
 - Bug while handling exception due to environment unable to wake (#2637)
 - Added correct documentation link to env:clone-content command (#2632)
-
+- Fixed undefined notice for $command_summary during WP-CLI/Drush execution (#2614)
 
 ## 3.6.0 - 2024-09-18
 
