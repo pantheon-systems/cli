@@ -1,6 +1,18 @@
 # Change Log
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org)
 
+## 3.6.1 - 2024-12-04
+
+### Added
+
+- New "branch" option to "local:clone" command (#2648)
+
+### Fixed
+
+- Bug while handling exception due to environment unable to wake (#2637)
+- Added correct documentation link to env:clone-content command (#2632)
+
+
 ## 3.6.0 - 2024-09-18
 
 ### Added
