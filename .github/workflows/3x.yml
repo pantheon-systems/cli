@@ -58,7 +58,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [ 'macos-latest' ]
-        php-versions: [ '7.4', '8.3', '8.4' ]
+        php-versions: [ '7.4', '8.0', '8.4' ]
       max-parallel: 1
     env:
       TERMINUS_TOKEN: ${{ secrets.TERMINUS_TOKEN }}
@@ -76,6 +76,7 @@ jobs:
       TERMINUS_VERIFY_HOST_CERT: ${{ vars.TERMINUS_VERIFY_HOST_CERT }}
       HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: 1
       HOMBEBREW_NO_AUTO_UPDATE: 1
+      TERMINUS_ALLOW_UNSUPPORTED_NEWER_PHP: 1
     needs: [ checkout_build ]
     steps:
       - name: Install SSH key
