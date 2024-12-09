@@ -39,7 +39,7 @@ class ArtCommand extends TerminusCommand
             'description' => 'A wonderful unicorn',
         ],
         'wordpress' => [
-            'name' => 'wordPress',
+            'name' => 'wordpress',
             'description' => 'The WordPress logo',
         ],
     ];
