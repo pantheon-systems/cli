@@ -16,7 +16,7 @@
     "php": ">=7.4",
     "ext-json": "*",
     "composer/semver": "^3",
-    "consolidation/comments": "^1.0.2",
+    "consolidation/comments": "^2",
     "consolidation/filter-via-dot-access-data": "^2.0",
     "consolidation/output-formatters": "^4",
     "consolidation/self-update": "^2.0.4",
@@ -28,12 +28,8 @@
     "monolog/monolog": "^2.2",
     "psy/psysh": "^0.11.9",
     "rogervila/array-diff-multidimensional": "^2.0",
-    "symfony/console": "^5",
-    "symfony/finder": "^5",
-    "symfony/process": "^5",
-    "symfony/yaml": "^5",
     "twig/twig": "^3.3",
-    "consolidation/robo": "^3.0"
+    "consolidation/robo": "^5"
   },
   "require-dev": {
     "ext-pcov": "*",
@@ -41,7 +37,6 @@
     "erusev/parsedown": "^1.7",
     "friendsofphp/php-cs-fixer": "^3.17",
     "pcov/clobber": "^2.0",
-    "php-vcr/php-vcr": "~1.5.2",
     "phpunit/php-code-coverage": "^9.2",
     "phpunit/phpcov": "^8.2",
     "phpunit/phpunit": "^9",
@@ -168,7 +163,7 @@
     "preferred-install": "dist",
     "sort-packages": true,
     "platform": {
-      "php": "7.4"
+      "php": "8.2.26"
     },
     "allow-plugins": {
       "phpstan/extension-installer": true

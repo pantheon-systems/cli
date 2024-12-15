@@ -2,13 +2,11 @@
 
 namespace Pantheon\Terminus\Helpers\AliasEmitters;
 
-use Consolidation\Comments\Comments;
 use Symfony\Component\Yaml\Yaml;
 
 class DrushRcEditor
 {
     protected $dir;
-    protected $comments;
 
     /**
      * DrushRcEditor constructor
