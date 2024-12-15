@@ -67,7 +67,7 @@ class CommandCoverageReport implements ConfigAwareInterface, IOAwareInterface
         $this->io = $io;
     }
 
-    public static function factory(OutputInterface $output = null)
+    public static function factory(?OutputInterface $output = null)
     {
         $input = new ArgvInput($_SERVER['argv']);
         $output = new ConsoleOutput();

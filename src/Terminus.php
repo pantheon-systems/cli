@@ -493,7 +493,7 @@ EOD;
      *
      * @return integer $status_code The exiting status code of the application
      */
-    public function run(InputInterface $input = null, OutputInterface $output = null)
+    public function run(?InputInterface $input = null, ?OutputInterface $output = null)
     {
         if ($input === null) {
             $input = $this->input();
