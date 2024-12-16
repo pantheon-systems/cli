@@ -7,7 +7,7 @@
 ---
 
 # App
-TERMINUS_VERSION: '3.6.1'
+TERMINUS_VERSION: '3.6.2-dev'
 
 # Connectivity
 TERMINUS_HOST:        'terminus.pantheon.io'
