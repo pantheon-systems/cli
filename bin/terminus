@@ -32,7 +32,7 @@ if (!getenv('TERMINUS_ALLOW_UNSUPPORTED_NEWER_PHP') && version_compare(PHP_VERSI
 
 // This variable is automatically managed via updateDependenciesversion() in /RoboFile.php,
 // which is run after every call to composer update.
-$terminusPluginsDependenciesVersion = 'd6b42646e1';
+$terminusPluginsDependenciesVersion = '51e2c517dd';
 
 // Cannot use $_SERVER superglobal since that's empty during phpunit testing
 // getenv('HOME') isn't set on Windows and generates a Notice.
