@@ -1,4 +1,4 @@
-name: Terminus 3.x
+name: Terminus 4.x
 on:
   push:
   schedule:

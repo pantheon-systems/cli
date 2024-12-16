@@ -79,7 +79,7 @@ class InstallCommand extends PluginBaseCommand
             return;
         }
 
-        // Get installed Terminus 3 plugins.
+        // Get installed Terminus 4 plugins.
         $plugins = $this->getPluginProjects();
         $t3projects = array_filter(
             array_map(

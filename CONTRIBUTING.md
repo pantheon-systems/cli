@@ -75,7 +75,7 @@ A PHAR file must also be built before running tests.
 
 The functional test files are in the `tests/Functional` directory.
 
-The Terminus 3.x functional tests can be run via:
+The Terminus 4.x functional tests can be run via:
 
   ```bash
   cd /install/location/terminus
