@@ -464,11 +464,20 @@ class Request implements
     private function userAgent()
     {
         $config = $this->getConfig();
+
+        $environment_info = [
+            'php_version' => $config->get('version'),
+            'script' => $config->get('php_version'),
+            'os' => PHP_OS,
+        ];
+
+        if (getenv('CI')) {
+            $environment_info['ci'] = '1',
+        }
+
         return sprintf(
-            'Terminus/%s (php_version=%s&script=%s)',
-            $config->get('version'),
-            $config->get('php_version'),
-            $config->get('script')
+            'Terminus/%s (%s)',
+            explode('&', $environment_info)
         );
     }
 
