@@ -64,6 +64,7 @@
     ]
   },
   "bin": [
+    "bin/terminus.php",
     "bin/terminus"
   ],
   "scripts": {
