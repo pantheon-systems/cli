@@ -2,32 +2,7 @@
 
 SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
-# If we can find a .env file next to the `terminus` binary, source it.
-# TODO: Is this a reasonable location? Where else should we look?
-# Should we make the filename more specific, e.g. `.terminus-env`?
-if [ -f "$SCRIPTPATH/.env" ]; then
-  source "$SCRIPTPATH/.env"
-fi
-
-# One good fallback location is in the Terminus config directory.
-# Note that we already have $HOME/.terminus/config.yml, but I
-# don't think we should parse that here.
-if [ -f "$HOME/.terminus/.env" ]; then
-  source "$HOME/.terminus/.env"
-fi
-
-# The logic below is ideal for scripts that are distributed
-# in `vendor/bin`. We might benefit if we decide to support
-# `terminus create-project pantheon-systems/terminus` as an
-# installation method. If we decide aginst this, we could
-# remove "$COMPOSER_RUNTIME_BIN_DIR" checks.
-if [ -z "$COMPOSER_RUNTIME_BIN_DIR" ]; then
-  # This branch is for the development of Drush itself.
-  # @see https://stackoverflow.com/questions/4774054
-  TERMINUS_EXECUTABLE="$SCRIPTPATH/terminus.php"
-else
-  TERMINUS_EXECUTABLE="$COMPOSER_RUNTIME_BIN_DIR/terminus.php"
-fi
+TERMINUS_EXECUTABLE="$COMPOSER_RUNTIME_BIN_DIR/terminus.php"
 
 # If we can't find `terminus.php` next to `terminus`,
 # look for `terminus.php` in the same directory.
