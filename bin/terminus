@@ -2,7 +2,7 @@
 
 SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
-TERMINUS_EXECUTABLE="$COMPOSER_RUNTIME_BIN_DIR/terminus.php"
+TERMINUS_EXECUTABLE="$SCRIPTPATH/terminus.php"
 
 # If we can't find `terminus.php` next to `terminus`,
 # look for `terminus.php` in the same directory.

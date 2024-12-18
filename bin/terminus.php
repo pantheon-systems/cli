@@ -12,7 +12,7 @@
 // Unset memory limit
 ini_set('memory_limit', -1);
 
--if (version_compare(PHP_VERSION, '7.4.0', '<') === true) {
+if (version_compare(PHP_VERSION, '7.4.0', '<') === true) {
     fwrite(STDERR, "\n");
     fwrite(STDERR, 'Sorry, your PHP version (' . PHP_VERSION . ') is no longer supported.' . "\n");
     fwrite(STDERR, 'Upgrade to PHP 7.4 or newer to use Terminus 4. For PHP versions prior to 7.4, downgrade to Terminus 2.x.' . "\n\n");
