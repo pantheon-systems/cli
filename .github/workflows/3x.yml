@@ -38,6 +38,10 @@ jobs:
         run: composer install --dev
       - name: Validate Code
         run: composer code:lint
+      - name: Adjust dependencies for PHP 7.4
+        run: composer config platform.php 7.4.28
+      - name: Update dependencies
+        run: composer update
       - name: Phar Build
         run: |
           mkdir $HOME/box
@@ -49,20 +53,6 @@ jobs:
         with:
           name: terminus-phar
           path: terminus.phar
-          if-no-files-found: error
-      - name: Adjust dependencies for PHP 7.4
-        run: composer config platform.php 7.4.28
-      - name: Update dependencies
-        run: composer update
-      - name: Phar Build for PHP 7.4
-        run: composer phar:build
-      - name: Rename PHP 7.4 phar
-        run: mv terminus.phar terminus-php74.phar
-      - name: Save terminus-php74.phar as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: terminus-php74-phar
-          path: terminus-php74.phar
           if-no-files-found: error
 
   functional:
@@ -114,12 +104,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: terminus-phar
-      - name: Download terminus-php74.phar as artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: terminus-php74-phar
-      - name: Rename terminus-php74.phar to terminus.phar
-        mv: terminus-php74.phar terminus.phar
       - name: Install Composer Dependencies
         run: composer install --no-interaction --prefer-dist
       - name: Setup tmate session
