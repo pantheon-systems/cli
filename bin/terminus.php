@@ -1,0 +1,81 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * This script runs Terminus. It does the following:
+ *   - Includes the Composer autoload file
+ *   - Starts a container with the input, output, application, and configuration objects
+ *   - Starts a runner instance and runs the command
+ *   - Exits with a status code
+ */
+
+// Unset memory limit
+ini_set('memory_limit', -1);
+
+if (version_compare(PHP_VERSION, '8.2.0', '<') === true) {
+    fwrite(STDERR, "\n");
+    fwrite(STDERR, 'Sorry, your PHP version (' . PHP_VERSION . ') is no longer supported.' . "\n");
+    fwrite(STDERR, 'Upgrade to PHP 8.2 or newer to use Terminus 4. For PHP versions prior to 8.2, downgrade to Terminus 3.x.' . "\n\n");
+    fwrite(STDERR, 'For more information, see https://pantheon.io/docs/terminus/updates#php-version-compatibility-matrix' . "\n\n");
+    exit(1);
+}
+
+if (!getenv('TERMINUS_ALLOW_UNSUPPORTED_NEWER_PHP') && version_compare(PHP_VERSION, '8.5.0', '>=') === true) {
+    fwrite(STDERR, "\n");
+    fwrite(STDERR, 'PHP 8.5+ is not supported by this version of Terminus.' . "\n");
+    fwrite(STDERR, 'Check for new versions at https://github.com/pantheon-systems/terminus/releases' . "\n");
+    fwrite(STDERR, "\n");
+    fwrite(STDERR, 'Set environment variable TERMINUS_ALLOW_UNSUPPORTED_NEWER_PHP to try continuing anyway.' . "\n");
+    fwrite(STDERR, "Stopping.\n\n");
+    exit(1);
+}
+
+// This variable is automatically managed via updateDependenciesversion() in /RoboFile.php,
+// which is run after every call to composer update.
+$terminusPluginsDependenciesVersion = '51e2c517dd';
+
+// Cannot use $_SERVER superglobal since that's empty during phpunit testing
+// getenv('HOME') isn't set on Windows and generates a Notice.
+$home = @getenv('HOME');
+if (!empty($home)) {
+    // home should never end with a trailing slash.
+    $home = rtrim($home, '/');
+}
+
+if (empty($home) && !empty($_SERVER['HOMEDRIVE']) && !empty($_SERVER['HOMEPATH'])) {
+    // home on windows
+    $home = $_SERVER['HOMEDRIVE'] . $_SERVER['HOMEPATH'];
+    // If HOMEPATH is a root directory the path can end with a slash. Make sure
+    // that doesn't happen.
+    $home = rtrim($home, '\\/');
+    @putenv("HOME={$home}");
+}
+
+$pharPath = \Phar::running(true);
+if ($pharPath) {
+    include_once("$pharPath/vendor/autoload.php");
+} elseif (file_exists($path = __DIR__ . '/../vendor/autoload.php')
+        || file_exists($path = __DIR__ . '/../../autoload.php')
+        || file_exists($path = __DIR__ . '/../../../autoload.php')
+) {
+    include_once($path);
+} else {
+    throw new \Exception('Could not locate autoload.php');
+}
+
+use Pantheon\Terminus\Terminus;
+
+$home_tokens_folder = '.terminus' . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR . 'tokens';
+
+$tokens_dir = $home . DIRECTORY_SEPARATOR . $home_tokens_folder;
+if (!is_dir($tokens_dir)) {
+    mkdir(
+            $tokens_dir,
+            0700,
+            true
+    );
+}
+
+$terminus = Terminus::factory($terminusPluginsDependenciesVersion);
+$status_code = $terminus->run();
+exit($status_code);
