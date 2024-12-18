@@ -104,6 +104,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: terminus-phar
+      - name: Adjust dependencies for PHP 7.4, if necessary
+        if: ${{ matrix.php-versions == '7.4' }}
+        run: |
+          composer config platform.php 7.4.28
+          composer update
       - name: Install Composer Dependencies
         run: composer install --no-interaction --prefer-dist
       - name: Setup tmate session
