@@ -12,10 +12,15 @@
 // Unset memory limit
 ini_set('memory_limit', -1);
 
-if (version_compare(PHP_VERSION, '7.4.0', '<') === true) {
+// Look up minimum PHP version from composer.json.
+$composer_json_contents = file_get_contents(dirname(__DIR__) . '/composer.json');
+$composer_json_data = json_decode($composer_json_contents, true);
+$min_php_version = $composer_json_data['config']['platform']['php'];
+
+if (version_compare(PHP_VERSION, $min_php_version, '<') === true) {
     fwrite(STDERR, "\n");
     fwrite(STDERR, 'Sorry, your PHP version (' . PHP_VERSION . ') is no longer supported.' . "\n");
-    fwrite(STDERR, 'Upgrade to PHP 7.4 or newer to use Terminus 4. For PHP versions prior to 7.4, downgrade to Terminus 2.x.' . "\n\n");
+    fwrite(STDERR, 'Upgrade to PHP ' . $min_php_version . ' or newer to use Terminus 4. For prior PHP versions, downgrade to Terminus 3.x.' . "\n\n");
     fwrite(STDERR, 'For more information, see https://pantheon.io/docs/terminus/updates#php-version-compatibility-matrix' . "\n\n");
     exit(1);
 }
