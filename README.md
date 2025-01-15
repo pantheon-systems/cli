@@ -61,7 +61,51 @@ brew install pantheon-systems/external/terminus
 
 ### Ubuntu / WinWSL+Ubuntu:
 
-`*** TBD ***`
+
+update system
+
+
+`sudo apt update && apt upgrade -y`
+
+
+install dependencies
+
+
+`sudo apt install -y curl php8.1 php-xml git composer`
+
+
+install wp-cli
+
+
+`curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar`
+
+optionally confirm wp-cli is working
+
+
+`php wp-cli.phar --info`
+
+install latest binary
+
+
+`chmod +x wp-cli.phar`
+
+`sudo mv wp-cli.phar /usr/local/bin/wp`
+
+install latest Terminus phar file
+
+
+`mkdir -p ~/terminus && cd ~/terminus`
+
+
+`curl -L https://github.com/pantheon-systems/terminus/releases/latest --output terminus`
+
+
+`chmod +x terminus`
+
+
+`sudo ln -s ~/terminus/terminus /usr/local/bin/terminus`
+
+Now you can generate your machine token to log in: [https://docs.pantheon.io/terminus/install#machine-token](https://docs.pantheon.io/terminus/install#machine-token)
 
 ### Other installation methods
 
