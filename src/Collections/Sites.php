@@ -138,6 +138,19 @@ class Sites extends APICollection implements SessionAwareInterface
     }
 
     /**
+    * Filters the members of this collection by their label.
+    *
+    * @param string $regex
+    *   Non-delimited PHP regex to filter site names by
+    *
+    * @return Sites
+    */
+    public function filterByLabel($regex = '(.*)')
+    {
+        return $this->filterByRegex('label', $regex);
+    }
+
+    /**
      * Filters an array of sites by the plan name.
      *
      * @param string $plan_name
