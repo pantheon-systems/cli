@@ -88,7 +88,10 @@ class RestoreCommand extends SingleBackupCommand
         foreach ($elements as $element) {
             $options['element'] = $element;
             try {
-                $backups[$element] = $this->getBackup($site_env, $options);
+                $backup = $this->getBackup($site_env, $options);
+                if ($backup->get('type') === $element) {
+                    $backups[$element] = $backup;
+                }
             } catch (TerminusNotFoundException $e) {
                 continue;
             }
