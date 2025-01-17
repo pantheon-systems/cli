@@ -53,6 +53,11 @@ if (!is_dir($cache_dir)) {
     );
 }
 
+if (!getenv('TERMINUS_ALLOW_UNSUPPORTED_NEWER_PHP')) {
+    // Terminus allow unsupported version.
+    putenv('TERMINUS_ALLOW_UNSUPPORTED_NEWER_PHP=1');
+}
+
 // If the bin file doesn't exist, build it.
 define("TERMINUS_BIN_FILE", realpath('./terminus.phar'));
 $version = exec(sprintf('%s --version', TERMINUS_BIN_FILE));

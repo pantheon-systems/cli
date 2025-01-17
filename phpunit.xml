@@ -33,5 +33,6 @@
         <server name="TERMINUS_CACHE_DIR" value="${TERMINUS_CACHE_DIR}" />
         <server name="TERMINUS_DEBUG" value="${TERMINUS_DEBUG}" />
         <server name="TERMINUS_PROJECT_ROOT" value="${TERMINUS_PROJECT_ROOT}" />
+        <server name="TERMINUS_ALLOW_UNSUPPORTED_NEWER_PHP" value="${TERMINUS_ALLOW_UNSUPPORTED_NEWER_PHP}" />
     </php>
 </phpunit>

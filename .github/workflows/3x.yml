@@ -1,4 +1,4 @@
-name: Terminus 3.x
+name: Terminus 4.x
 on:
   push:
   schedule:
@@ -24,7 +24,7 @@ jobs:
   checkout_build:
     runs-on: ubuntu-latest
     container:
-      image: quay.io/pantheon-public/php-ci:v7.4
+      image: quay.io/pantheon-public/php-ci:v8.2
     name: Checkout & build Phar
     steps:
       - name: Checkout
@@ -58,7 +58,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [ 'macos-latest' ]
-        php-versions: [ '7.4', '8.2', '8.3' ]
+        php-versions: [ '8.4' ]
       max-parallel: 1
     env:
       TERMINUS_TOKEN: ${{ secrets.TERMINUS_TOKEN }}
@@ -76,6 +76,7 @@ jobs:
       TERMINUS_VERIFY_HOST_CERT: ${{ vars.TERMINUS_VERIFY_HOST_CERT }}
       HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: 1
       HOMBEBREW_NO_AUTO_UPDATE: 1
+      TERMINUS_ALLOW_UNSUPPORTED_NEWER_PHP: 1
     needs: [ checkout_build ]
     steps:
       - name: Install SSH key
@@ -127,7 +128,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Release
     container:
-      image: quay.io/pantheon-public/php-ci:v7.4
+      image: quay.io/pantheon-public/php-ci:v8.2
     needs: [ functional ]
     if: ${{ startsWith(github.ref, 'refs/tags/')  && github.repository == 'pantheon-systems/terminus' }}
     steps:
