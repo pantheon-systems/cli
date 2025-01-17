@@ -1,4 +1,4 @@
-name: Terminus 3.x
+name: Terminus 4.x
 on:
   push:
   schedule:
@@ -24,7 +24,7 @@ jobs:
   checkout_build:
     runs-on: ubuntu-latest
     container:
-      image: quay.io/pantheon-public/php-ci:v7.4
+      image: quay.io/pantheon-public/php-ci:v8.2
     name: Checkout & build Phar
     steps:
       - name: Checkout
@@ -128,7 +128,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Release
     container:
-      image: quay.io/pantheon-public/php-ci:v7.4
+      image: quay.io/pantheon-public/php-ci:v8.2
     needs: [ functional ]
     if: ${{ startsWith(github.ref, 'refs/tags/')  && github.repository == 'pantheon-systems/terminus' }}
     steps:
