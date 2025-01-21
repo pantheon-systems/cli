@@ -78,7 +78,7 @@ class PantheonAliases
     'db-allows-remote' => true,
     'remote-host'      => $remote_host,
     'remote-user'      => $remote_user,
-    'ssh-options'      => '-p 2222 -o \"AddressFamily inet\"',
+    'ssh-options'      => '-p 2222',
     'path-aliases'     => array(
       '%files'        => 'code/sites/default/files',
       '%drush-script' => 'drush',

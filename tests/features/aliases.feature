@@ -31,7 +31,7 @@ Feature: Gathering sites' aliases
        'uri' => '${env-name}-a-far-off-site-with-no-org.pantheonsite.io',
        'remote-host' => 'appserver.${env-name}.8a5311d2-162a-4a88-8561-ebf8706568cb.drush.in',
        'remote-user' => '${env-name}.8a5311d2-162a-4a88-8561-ebf8706568cb',
-       'ssh-options' => '-p 2222 -o "AddressFamily inet"',
+       'ssh-options' => '-p 2222',
        'path-aliases' => array(
          '%files' => 'files',
         ),

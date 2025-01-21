@@ -62,8 +62,8 @@ class AliasesCommandTest extends TerminusTestBase
             sprintf('"remote-user" value should match "${env-name}.%s"', $this->getSiteId())
         );
         $this->assertTrue(
-            false !== strpos($alias_printed, '-p 2222 -o "AddressFamily inet"'),
-            '"ssh-options" value should match "-p 2222 -o "AddressFamily inet"'
+            false !== strpos($alias_printed, '-p 2222'),
+            '"ssh-options" value should match "-p 2222'
         );
         $this->assertTrue(
             false !== strpos($alias_printed, '\'path-aliases\'')
@@ -107,7 +107,7 @@ class AliasesCommandTest extends TerminusTestBase
   uri: {$site_alias['uri']}
   user: {$site_alias['remote-user']}
   ssh:
-    options: '-p 2222 -o "AddressFamily inet"'
+    options: '-p 2222'
     tty: false
 EOF;
         $this->assertEquals($expected_drush_9_site_alias, $drush_9_site_alias_in_file);

@@ -15,7 +15,7 @@
     'uri' => '${env-name}-personalsite.pantheonsite.io',
     'remote-host' => 'appserver.${env-name}.33333333-3333-3333-3333-333333333333.drush.in',
     'remote-user' => '${env-name}.33333333-3333-3333-3333-333333333333',
-    'ssh-options' => '-p 2222 -o "AddressFamily inet"',
+    'ssh-options' => '-p 2222',
     'path-aliases' => array(
       '%files' => 'files',
      ),
@@ -25,7 +25,7 @@
     'uri' => '${env-name}-demo.pantheonsite.io',
     'remote-host' => 'appserver.${env-name}.44444444-4444-4444-4444-444444444444.drush.in',
     'remote-user' => '${env-name}.44444444-4444-4444-4444-444444444444',
-    'ssh-options' => '-p 2222 -o "AddressFamily inet"',
+    'ssh-options' => '-p 2222',
     'path-aliases' => array(
       '%files' => 'files',
      ),
@@ -35,7 +35,7 @@
     'uri' => '${env-name}-agency.pantheonsite.io',
     'remote-host' => 'appserver.${env-name}.55555555-5555-5555-5555-555555555555.drush.in',
     'remote-user' => '${env-name}.55555555-5555-5555-5555-555555555555',
-    'ssh-options' => '-p 2222 -o "AddressFamily inet"',
+    'ssh-options' => '-p 2222',
     'path-aliases' => array(
       '%files' => 'files',
      ),

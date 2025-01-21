@@ -32,7 +32,7 @@ class TemplateTest extends TerminusTestCase
   uri: MULTIDEV-MYSITE.pantheonsite.io
   user: MULTIDEV.00000000-0000-0000-0000-000000000000
   ssh:
-    options: '-p 2222 -o "AddressFamily inet"'
+    options: '-p 2222'
     tty: false
 EOT;
 
@@ -44,7 +44,7 @@ EOT;
   uri: MULTIDEV-MYSITE.pantheonsite.io
   user: MULTIDEV.00000000-0000-0000-0000-000000000000
   ssh:
-    options: '-p 2222 -o "AddressFamily inet"'
+    options: '-p 2222'
     tty: false
 EOT;
 

@@ -5,5 +5,5 @@
   uri: ${env-name}-agency.pantheonsite.io
   user: ${env-name}.55555555-5555-5555-5555-555555555555
   ssh:
-    options: '-p 2222 -o "AddressFamily inet"'
+    options: '-p 2222'
     tty: false

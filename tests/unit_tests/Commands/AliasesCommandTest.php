@@ -153,7 +153,7 @@ class AliasesCommandTest extends CommandTestCase
   uri: \${env-name}-site1.pantheonsite.io
   user: \${env-name}.abc
   ssh:
-    options: '-p 2222 -o "AddressFamily inet"'
+    options: '-p 2222'
     tty: false
 __EOT__;
         $this->assertEquals($expected, trim($drush_9_aliases));
@@ -232,7 +232,7 @@ __EOT__;
     'uri' => '\${env-name}-site1.pantheonsite.io',
     'remote-host' => 'appserver.\${env-name}.abc.drush.in',
     'remote-user' => '\${env-name}.abc',
-    'ssh-options' => '-p 2222 -o "AddressFamily inet"',
+    'ssh-options' => '-p 2222',
     'path-aliases' => array(
       '%files' => 'files',
      ),
