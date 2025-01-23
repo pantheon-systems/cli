@@ -29,7 +29,7 @@ class PantheonAliasPolicyCommands extends DrushCommands implements SiteAliasMana
 
     /**
      * Check to see if the current alias is a Pantheon alias. If so, we will
-     * validate whether or not the
+     * validate whether or not the environment exists for that alias.
      *
      * @hook pre-init *
      *
