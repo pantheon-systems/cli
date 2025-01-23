@@ -37,7 +37,7 @@ class LoginCommand extends TerminusCommand
                 $token = $tokens->get($options['machine-token']);
                 $this->processLogIn($token);
                 return;
-            } catch (\Exception $e) {
+            } catch (\Throwable $e) {
                 $this->log()->notice('Logging in via machine token.');
                 $tokens->create($options['machine-token']);
             }
