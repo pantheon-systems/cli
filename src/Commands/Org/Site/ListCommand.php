@@ -39,7 +39,8 @@ class ListCommand extends TerminusCommand implements SiteAwareInterface
      *
      * @param string $organization Organization name, label, or ID
      * @option plan DEPRECATED Plan filter; filter by the plan's label
-     * @option string $tag DEPRECATED Tag name to filter
+     * @option string $tag Tag name to filter (ANY)
+     * @option string $tags Multiple tag names to filter (ALL)
      * @option string $upstream Upstream name to filter
      *
      * @usage <organization> Displays the list of sites associated with <organization>.
