@@ -58,7 +58,15 @@ brew install {{ brew_package }}
 
 ### Ubuntu / WinWSL+Ubuntu:
 
-`{{ debian_package_install | raw }}`
+```
+git clone https://github.com/pantheon-systems/terminus \
+    && cd terminus \
+    && git checkout 3.x \
+    && composer install \
+    && composer phar:build \
+    && composer phar:install \
+    && rm -Rf /tmp/terminus
+```
 
 ### Other installation methods
 

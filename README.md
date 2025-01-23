@@ -61,7 +61,12 @@ brew install pantheon-systems/external/terminus
 
 ### Ubuntu / WinWSL+Ubuntu:
 
-`*** TBD ***`
+```
+# Setup repository
+curl -s https://packagecloud.io/install/repositories/pantheon/public/script.deb.sh | bash
+# Install package
+apt install -y terminus
+```
 
 ### Other installation methods
 
