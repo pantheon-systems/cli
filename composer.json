@@ -25,11 +25,16 @@
     "czproject/git-php": "^4.0",
     "guzzlehttp/guzzle": "^7.0",
     "justinrainbow/json-schema": "^5.2",
-    "league/container": "^4.2",
+    "league/container": "^3 || ^4",
     "monolog/monolog": "^2.2",
-    "psy/psysh": "^0.12.6",
+    "psy/psysh": "^0.12",
     "rogervila/array-diff-multidimensional": "^2.0",
-    "twig/twig": "^3.3"
+    "symfony/console": "^5",
+    "symfony/finder": "^5",
+    "symfony/process": "^5",
+    "symfony/yaml": "^5",
+    "twig/twig": "^3.3",
+    "consolidation/robo": "^3.0 || ^4.0"
   },
   "require-dev": {
     "ext-pcov": "*",
