@@ -22,11 +22,9 @@ Our documentation is kept in the Terminus Manual, located here: https://pantheon
 |------------------------|------------|
 | MacOS                  | 10.14+     |
 | Ubuntu                 | Latest LTS |
-| Windows + WSL + Ubuntu | TBD        |
+| Windows + WSL + Ubuntu | 20.0+      |
 
 ### Package Manager
-
-- [apt](https://ubuntu.com/server/docs/package-management) for Ubuntu/WinWSL-Ubuntu
 
 - [Homebrew](https://brew.sh) for mac
 
@@ -59,10 +57,20 @@ Terminus is published as a package under pantheon-systems/external. To install i
 brew install pantheon-systems/external/terminus
 ```
 
-### Ubuntu / WinWSL+Ubuntu:
+### Standalone Terminus PHAR
 
-`*** TBD ***`
+The commands below will:
 
-### Other installation methods
+- Create a `terminus` folder in your home directory (`~/`)
+- Get the latest release tag of Terminus
+- Download and save the release as `~/terminus/terminus`
+- Make the file executable
+- Add a symlink to your local `bin` directory for the Terminus executable
 
-Refer to the [Terminus manual](https://pantheon.io/docs/terminus/install#install-terminus) for other installation methods.
+```bash
+mkdir -p ~/terminus && cd ~/terminus
+curl -L https://github.com/pantheon-systems/terminus/releases/download/3.6.1/terminus.phar --output terminus
+chmod +x terminus
+./terminus self:update
+sudo ln -s ~/terminus/terminus /usr/local/bin/terminus
+```
